@@ -66,16 +66,13 @@ class App extends React.Component {
           </Navbar.Brand>
         </Navbar>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="#home">
-            Maryland Department of Health EPHT
-          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Nav.Link href="#features">Trends</Nav.Link>
+              <Nav.Link href="#pricing">Equity and Disparity</Nav.Link>
               <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.1">Programs</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
                   Another action
                 </NavDropdown.Item>
@@ -152,25 +149,10 @@ class App extends React.Component {
                             className="mt-4"
                             src="img/trends.png"
                           /> */}
-                          <BarLineChart />
-                        </Card.Body>
-                      </Card>
-                      <Card>
-                        <Card.Body>
-                          <Card.Title>
-                            Equity and Disparity
-                            <FontAwesomeIcon
-                              className="float-right icon-opacity"
-                              icon={faExternalLinkAlt}
-                            />
-                          </Card.Title>
-                          <p style={{ fontSize: 13 }}>
-                            Children's Blood Lead Levels in micrograms per
-                            deciliter by Race and Birth Year
-                          </p>
                           <LineChart />
                         </Card.Body>
                       </Card>
+
                       <Card>
                         <Card.Body>
                           <Card.Title>
@@ -181,8 +163,8 @@ class App extends React.Component {
                             />
                           </Card.Title>
                           <p style={{ fontSize: 12 }}>
-                            Percentage Change in Children One and Two Years Old
-                            Tested for Lead 2000-2018
+                            Percent of Children One and Two Years Old Tested for
+                            Lead 2010-2015
                           </p>
                           {/* <Card.Img
                             variant="bottom"
@@ -577,10 +559,10 @@ class BarLineChart extends React.Component {
   render() {
     const data = {
       labels: [
-        "2000",
-        "2001",
-        "2002",
-        "2003",
+        // "2000",
+        // "2001",
+        // "2002",
+        // "2003",
         "2004",
         "2005",
         "2006",
@@ -731,15 +713,15 @@ class DoubleBarChart extends React.Component {
   render() {
     const data = {
       labels: [
-        "2000",
-        "2001",
-        "2002",
-        "2003",
-        "2004",
-        "2005",
-        "2006",
-        "2007",
-        "2008",
+        // "2000",
+        // "2001",
+        // "2002",
+        // "2003",
+        // "2004",
+        // "2005",
+        // "2006",
+        // "2007",
+        // "2008",
         "2010",
         "2011",
         "2012",
