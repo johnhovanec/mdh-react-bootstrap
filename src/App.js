@@ -511,8 +511,8 @@ class LineChart extends React.Component {
           pointHitRadius: 5,
           pointHoverRadius: 5,
           pointHoverBorderWidth: 2,
-          backgroundColor: "rgba(0,102,204,0.3)",
-          borderColor: "rgba(0,102,204,1)",
+          backgroundColor: "rgba(43,123,227,0.4)",
+          borderColor: "rgba(43,123,227,1)",
           borderWidth: 2,
           data: [9.3, 7.7, 7.0, 5.7, 3.0]
         },
@@ -524,8 +524,8 @@ class LineChart extends React.Component {
           pointHitRadius: 5,
           pointHoverRadius: 5,
           pointHoverBorderWidth: 2,
-          backgroundColor: "rgba(204,0,0,0.3)",
-          borderColor: "rgba(204,0,0,1)",
+          backgroundColor: "rgba(245,104,21,0.4)",
+          borderColor: "rgba(245,104,21,1)",
           borderWidth: 2,
           data: [5.3, 4.1, 3.0, 2.4, 1.0]
         }
