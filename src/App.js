@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MemoryRouter, Switch, Route } from "react-router-dom";
-import { Bar, Line } from "react-chartjs-2";
+import { Bar, Line, HorizontalBar } from "react-chartjs-2";
 
 import Accordion from "react-bootstrap/Accordion";
 import Badge from "react-bootstrap/Badge";
@@ -129,6 +129,26 @@ class App extends React.Component {
 
                   <Card.Body>
                     <Card.Text />
+                    <Card>
+                      <Card.Body>
+                        <Card.Title>
+                          Intervention Impact
+                          <FontAwesomeIcon
+                            className="float-right icon-opacity"
+                            icon={faExternalLinkAlt}
+                          />
+                        </Card.Title>
+                        <p style={{ fontSize: 12 }}>
+                          Percent of Children One and Two Years Old Tested for
+                          Lead 2010-2015
+                        </p>
+                        {/* <Card.Img
+                            variant="bottom"
+                            src="img/interventionimpact.png"
+                          /> */}
+                        <BarChart />
+                      </Card.Body>
+                    </Card>
                     <CardGroup className="mt-4">
                       <Card>
                         <Card.Body>
@@ -170,7 +190,7 @@ class App extends React.Component {
                             variant="bottom"
                             src="img/interventionimpact.png"
                           /> */}
-                          <DoubleBarChart />
+                          <BarChart />
                         </Card.Body>
                       </Card>
                     </CardGroup>
@@ -501,10 +521,10 @@ class App extends React.Component {
 class LineChart extends React.Component {
   render() {
     const data = {
-      labels: ["1990", "1995", "2000", "2005", "2010"],
+      labels: ["2010-2014", "2011-2015", "2012-2016", "2013-2017", "2014-2018"],
       datasets: [
         {
-          label: "Black",
+          label: "Male Rate",
           fill: false,
           lineTension: 0.3,
           pointRadius: 2,
@@ -514,10 +534,10 @@ class LineChart extends React.Component {
           backgroundColor: "rgba(43,123,227,0.4)",
           borderColor: "rgba(43,123,227,1)",
           borderWidth: 2,
-          data: [9.3, 7.7, 7.0, 5.7, 3.0]
+          data: [397, 367.7, 377.0, 355.6, 342.0]
         },
         {
-          label: "White",
+          label: "Female Rate",
           fill: false,
           lineTension: 0.3,
           pointRadius: 2,
@@ -527,7 +547,20 @@ class LineChart extends React.Component {
           backgroundColor: "rgba(245,104,21,0.4)",
           borderColor: "rgba(245,104,21,1)",
           borderWidth: 2,
-          data: [5.3, 4.1, 3.0, 2.4, 1.0]
+          data: [387, 367.7, 357.0, 352.6, 332.0]
+        },
+        {
+          label: "Total Rate",
+          fill: false,
+          lineTension: 0.3,
+          pointRadius: 2,
+          pointHitRadius: 5,
+          pointHoverRadius: 5,
+          pointHoverBorderWidth: 2,
+          backgroundColor: "rgba(53,209,25,0.4)",
+          borderColor: "rgba(53,209,25,1)",
+          borderWidth: 2,
+          data: [797, 767.7, 757.0, 752.6, 732.0]
         }
       ]
     };
@@ -846,6 +879,143 @@ class DoubleBarChart extends React.Component {
           data={data}
           width={100}
           height={50}
+          options={{
+            maintainAspectRatio: true
+          }}
+        />
+      </div>
+    );
+  }
+}
+
+class BarChart extends React.Component {
+  render() {
+    const data = {
+      labels: [
+        "Allegany",
+        "Anne Arundel",
+        "Baltimore County",
+        "Baltimore City",
+        "Calvert",
+        "Caroline",
+        "Carroll",
+        "Cecil",
+        "Charles",
+        "Dorchester",
+        "Frederick",
+        "Garrett",
+        "Harford",
+        "Howard",
+        "Kent",
+        "Montgomery",
+        "Prince George's",
+        "Queen Anne's",
+        "St. Mary's",
+        "Somerset",
+        "Talbot",
+        "Washington",
+        "Wicomico",
+        "Worcester"
+      ],
+      datasets: [
+        {
+          label: "Rates by County",
+          backgroundColor: "rgba(0,102,204,0.6)",
+          borderColor: "rgba(0,102,204,1)",
+          borderWidth: 1,
+          hoverBackgroundColor: "rgba(0,102,204,0.2)",
+          hoverBorderColor: "rgba(0,102,204,1)",
+          data: [
+            321,
+            361,
+            351,
+            341,
+            431,
+            411,
+            431.4,
+            341,
+            431,
+            411,
+            431.4,
+            441,
+            451,
+            471,
+            461.4,
+            461.1,
+            471,
+            491,
+            531.3,
+            501,
+            341,
+            431,
+            411,
+            431.4
+          ]
+        }
+      ]
+    };
+
+    const options = {
+      responsive: false,
+      tooltips: {
+        mode: "label"
+      },
+      elements: {
+        line: {
+          fill: false
+        }
+      },
+      scales: {
+        xAxes: [
+          {
+            display: true,
+            gridLines: {
+              display: true
+            },
+            labels: {
+              show: false
+            }
+          }
+        ],
+        yAxes: [
+          {
+            type: "linear",
+            display: true,
+            position: "left",
+            id: "y-axis-1",
+            gridLines: {
+              display: false
+            },
+            labels: {
+              show: false
+            }
+          },
+          {
+            type: "linear",
+            display: true,
+            position: "right",
+            id: "y-axis-2",
+            gridLines: {
+              display: false
+            },
+            labels: {
+              show: true
+            }
+          }
+        ]
+      },
+      legend: {
+        display: false,
+        position: "bottom"
+      }
+    };
+
+    return (
+      <div>
+        <HorizontalBar
+          data={data}
+          width={80}
+          height={100}
           options={{
             maintainAspectRatio: true
           }}
