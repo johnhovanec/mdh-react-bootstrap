@@ -547,7 +547,7 @@ class LineChart extends React.Component {
           backgroundColor: "rgba(245,104,21,0.4)",
           borderColor: "rgba(245,104,21,1)",
           borderWidth: 2,
-          data: [387, 367.7, 357.0, 352.6, 332.0]
+          data: [387, 567.7, null, 545, 732.0]
         },
         {
           label: "Total Rate",
@@ -933,7 +933,7 @@ class BarChart extends React.Component {
             431,
             411,
             431.4,
-            341,
+            null,
             431,
             411,
             431.4,
